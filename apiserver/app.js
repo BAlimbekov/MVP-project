@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3300;
+// const port = 3300;
 const config = require('./config.js')[process.env.NODE_ENV||"dev"]
 const PORT = config.port;
 const { Client } = require('pg');
@@ -75,6 +75,6 @@ app.patch('/api/workouts/:id', (req, res) => {
     .catch((err)=> console.error(err.stack))
 });
 
-app.listen(port, () => {
-    console.log(`listening on port ${port}`)
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
 });
