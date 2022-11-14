@@ -1,0 +1,36 @@
+###
+GET http://localhost:3300
+
+###
+GET http://localhost:3300/workouts
+
+###
+GET http://localhost:3300/api/workouts/2
+
+###
+POST http://localhost:3300/api/workouts
+Content-Type: application/json
+
+{
+    "day_num": 8,
+    "warmup": "5 mins",
+    "pushups": "20 reps",
+    "situps": "10 reps",
+    "run": "60/120 sprints"
+}
+
+
+###
+PATCH  http://localhost:3300/api/workouts/7
+Content-Type: application/json
+
+{
+    "day_num": 7,
+    "warmup": "5 mins",
+    "pushups": "20 reps",
+    "situps": "10 reps",
+    "run": "60/120 sprints"
+}
+
+###
+DELETE http://localhost:3300/api/workouts/8
