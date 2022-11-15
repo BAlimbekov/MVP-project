@@ -283,3 +283,13 @@ $("#day2").on("click", function(){
                                 })
                             })                        
                         });
+                        
+                        $("#deletebutton").on("click", function(){
+                            fetch(apiURL + "api/workouts/" + $("#deleteinput").val(), {
+                                method: 'DELETE',
+                            })
+                            .then (res => res.text())
+                            .then(data => {
+                                console.log("deleted")
+                            })
+                        })
