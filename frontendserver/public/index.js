@@ -2,7 +2,7 @@
 const ENV = "production";
 // const ENV = 'dev';
 let apiURL = ENV == "dev" ? "http://localhost:3300" : "https://mvp-server.onrender.com/";
-console.log("API:", apiURL);
+
 
 
 
@@ -44,7 +44,10 @@ $("#button").on("click", function(){
 
 function clear(){
     $('.flex-container').empty()
-}
+};
+function clearBody(){
+    $('#body').empty()
+};
 
 $("#createbutton")
 
@@ -234,4 +237,49 @@ $("#day2").on("click", function(){
                                 $card.append($image, $cardBody, $mainList)
                                 $('.flex-container').append($card)
                             });
+                        });
+
+
+                        $("#createbutton").on("click", function(e){
+                            clear();
+                            // $(".flex-container").hide();
+                            // $("#addDiv").hide();
+                            // $("#header").hide();
+                            // $("footer").hide();
+                            e.preventDefault();
+                            $div=$("<div id='addDiv' class='card' style='width:25rem:'></div>")
+                            $input=$('<input class="form-control" type="text" placeholder="quote" aria-label="default input example">')
+                            $input1=$('<input class="form-control" type="text" placeholder="dayNumber" aria-label="default input example">')
+                            $input2=$('<input class="form-control" type="text" placeholder="warmup in minutes" aria-label="default input example">')
+                            $input3=$('<input class="form-control" type="text" placeholder="pushups" aria-label="default input example">')
+                            $input4=$('<input class="form-control" type="text" placeholder="situps" aria-label="default input example">')
+                            $input5=$('<input class="form-control" type="text" placeholder="run" aria-label="default input example">')
+                            var $a=$("<a id='submit' class='btn btn-primary'>Submit</a>");
+                            $("#body").append($div)
+                            $div.append($input, $input1, $input2, $input3, $input4, $input5, $a)  
+                            $('#submit').on('click', function(){
+                                fetch("http://localhost:3300/api/workouts", {
+                                    method:"POST",
+                                    body:JSON.stringify({
+                                        quote:$input.val(),
+                                        day_num:$input1.val(),
+                                        warmup:$input2.val(),
+                                        pushups:$input3.val(),
+                                        situps:$input4.val(),
+                                        run:$input5.val()
+                                    }),
+                                    headers: {
+                                        "Content-type": "application/json; charset=UTF-8"
+                                    }
+                                })
+                                .then(res => res.json())
+                                .then(data =>{
+                                    $div.hide()
+                                    var $newWorkoutDiv =$("<div class='ty'></div>")
+                                    $(".flex-container").append($newWorkoutDiv)
+                                    var $img=$("<img class='card-img-top' height='1100px'></img>");
+                                    $img.attr('src', 'https://st4.depositphotos.com/14953852/22772/v/1600/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg')
+                                    $newWorkoutDiv.append($img)
+                                })
+                            })                        
                         });
