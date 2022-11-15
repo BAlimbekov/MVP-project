@@ -1,7 +1,7 @@
 //$( ".flex-container" ).hide();
-const ENV = "dev";
+const ENV = "production";
 
-let apiURL = ENV == "dev" ? "http://localhost:3300" : "https://api-server-0lmn.onrender.com";
+let apiURL = ENV == "dev" ? "http://localhost:3300" : "https://mvp-server.onrender.com/";
 console.log("API:", apiURL);
 
 
