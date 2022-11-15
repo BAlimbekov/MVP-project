@@ -6,7 +6,7 @@ const PORT = config.port;
 const { Client } = require('pg');
 const connectionString = 'postgresql://postgres:docker@127.0.0.1:5432/workouts_db';
 const client = new Client({
-    connectionString: config.connectionString
+    connectionString: config.connectionString,
 });
 const cors = require('cors');
 app.use(cors());
@@ -46,7 +46,7 @@ app.post('/api/workouts', (req, res) => {
     const queryString = "INSERT INTO workouts (day_num, warmup, pushups, situps, run)VALUES($1, $2, $3, $4, $5)"
     client.query(queryString, [day_num, warmup, pushups, situps, run])
         .then((result) => {
-            res.status(200).send('added')
+            res.status(200).send(result.rows)
         })
         .catch((err) => console.error(err.stack))
 });
