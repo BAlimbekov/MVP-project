@@ -14,7 +14,7 @@ $("#button").on("click", function(){
     //console.log($input.val())
     clear();
     
-    fetch('http://localhost:3300/workouts')
+    fetch(apiURL + 'workouts')
         .then(response => response.json())
         .then(result => {
             console.log(result)
@@ -55,7 +55,7 @@ $("#createbutton")
 $("#day1").on("click", function(){
     clear();
     
-    fetch('http://localhost:3300/api/workouts/1')
+    fetch(apiURL + 'api/workouts/1')
         .then(response => response.json())
         .then(result => {
             console.log(result)
@@ -82,7 +82,7 @@ $("#day1").on("click", function(){
 $("#day2").on("click", function(){
     clear();
     
-    fetch('http://localhost:3300/api/workouts/2')
+    fetch(apiURL + 'api/workouts/2')
         .then(response => response.json())
         .then(result => {
             console.log(result)
@@ -109,7 +109,7 @@ $("#day2").on("click", function(){
     $("#day3").on("click", function(){
         clear();
         
-        fetch('http://localhost:3300/api/workouts/3')
+        fetch(apiURL + 'api/workouts/3')
             .then(response => response.json())
             .then(result => {
                 console.log(result)
@@ -135,7 +135,7 @@ $("#day2").on("click", function(){
         $("#day4").on("click", function(){
             clear();
             
-            fetch('http://localhost:3300/api/workouts/4')
+            fetch(apiURL + 'api/workouts/4')
                 .then(response => response.json())
                 .then(result => {
                     console.log(result)
@@ -162,7 +162,7 @@ $("#day2").on("click", function(){
             $("#day5").on("click", function(){
                 clear();
                 
-                fetch('http://localhost:3300/api/workouts/5')
+                fetch(apiURL + 'api/workouts/5')
                     .then(response => response.json())
                     .then(result => {
                         console.log(result)
@@ -188,7 +188,7 @@ $("#day2").on("click", function(){
                 $("#day6").on("click", function(){
                     clear();
                     
-                    fetch('http://localhost:3300/api/workouts/6')
+                    fetch(apiURL + 'api/workouts/6')
                         .then(response => response.json())
                         .then(result => {
                             console.log(result)
@@ -215,7 +215,7 @@ $("#day2").on("click", function(){
                     $("#day7").on("click", function(){
                         clear();
                         
-                        fetch('http://localhost:3300/api/workouts/7')
+                        fetch(apiURL + 'api/workouts/7')
                             .then(response => response.json())
                             .then(result => {
                                 console.log(result)
@@ -245,7 +245,7 @@ $("#day2").on("click", function(){
                             // $(".flex-container").hide();
                             // $("#addDiv").hide();
                             // $("#header").hide();
-                            // $("footer").hide();
+                            $("footer").hide();
                             e.preventDefault();
                             $div=$("<div id='addDiv' class='card' style='width:25rem:'></div>")
                             $input=$('<input class="form-control" type="text" placeholder="quote" aria-label="default input example">')
@@ -258,7 +258,7 @@ $("#day2").on("click", function(){
                             $("#body").append($div)
                             $div.append($input, $input1, $input2, $input3, $input4, $input5, $a)  
                             $('#submit').on('click', function(){
-                                fetch("http://localhost:3300/api/workouts", {
+                                fetch(apiURL + 'api/workouts', {
                                     method:"POST",
                                     body:JSON.stringify({
                                         quote:$input.val(),
@@ -277,7 +277,7 @@ $("#day2").on("click", function(){
                                     $div.hide()
                                     var $newWorkoutDiv =$("<div class='ty'></div>")
                                     $(".flex-container").append($newWorkoutDiv)
-                                    var $img=$("<img class='card-img-top' height='1100px'></img>");
+                                    var $img=$("<img class='card-img-top' height='900px'></img>");
                                     $img.attr('src', 'https://st4.depositphotos.com/14953852/22772/v/1600/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg')
                                     $newWorkoutDiv.append($img)
                                 })
