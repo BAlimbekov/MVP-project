@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 3300;
+//const port = 3300;
 const config = require('./config.js')[process.env.NODE_ENV||"dev"]
-//const PORT = config.port;
+const PORT = config.port;
 const { Client } = require('pg');
 const connectionString = 'postgresql://postgres:docker@127.0.0.1:5432/workouts_db';
 const client = new Client({
@@ -77,6 +77,6 @@ app.patch('/api/workouts/:id', (req, res) => {
     .catch((err)=> console.error(err.stack))
 });
 
-app.listen(3300, () => {
-    console.log(`listening on port ${port}`)
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
 });

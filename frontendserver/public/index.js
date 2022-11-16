@@ -1,6 +1,6 @@
 //$( ".flex-container" ).hide();
-//const ENV = "production";
-const ENV = 'dev';
+const ENV = "production";
+//const ENV = 'dev';
 let apiURL = ENV == "dev" ? "http://localhost:3300/" : "https://mvp-server.onrender.com/";
 
 
@@ -326,9 +326,6 @@ $("#day2").on("click", function(){
 
                             $("#editbutton").on("click", function(e){
                             clear();
-                            // $(".flex-container").hide();
-                            // $("#addDiv").hide();
-                            // $("#header").hide();
                             $("footer").hide();
                             e.preventDefault();
                             $div=$("<div id='addDiv' class='card' style='width:25rem:'></div>")
@@ -343,7 +340,7 @@ $("#day2").on("click", function(){
                             $div.append($input, $input1, $input2, $input3, $input4, $input5, $a)  
                             $('#submit').on('click', function(){
                                 console.log($input.val());
-                                fetch(apiURL + 'api/workouts/' + $("#deleteinput").val, {
+                                fetch(apiURL + 'api/workouts/' + $("#deleteinput").val(), {
                                     method:"PATCH",
                                     body:JSON.stringify({
                                         quote:$input.val(),

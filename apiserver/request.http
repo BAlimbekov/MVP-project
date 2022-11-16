@@ -22,7 +22,7 @@ Content-Type: application/json
 
 
 ###
-PATCH  http://localhost:3300/api/workouts/26
+PATCH  http://localhost:3300/api/workouts/33
 Content-Type: application/json
 
 {   
@@ -35,5 +35,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3300/api/workouts/29
+DELETE http://localhost:3300/api/workouts/33
 
