@@ -73,3 +73,11 @@ footer{
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.card {
+  float: left;
+}
+.card:hover {
+  transform: scale(1.1);
+  transition: 1s ease;
+}
