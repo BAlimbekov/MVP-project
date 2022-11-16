@@ -12,6 +12,7 @@ POST http://localhost:3300/api/workouts
 Content-Type: application/json
 
 {
+    "quote": "Go hard or go home.",
     "day_num": 8,
     "warmup": "5 mins",
     "pushups": "20 reps",
@@ -21,10 +22,11 @@ Content-Type: application/json
 
 
 ###
-PATCH  http://localhost:3300/api/workouts/7
+PATCH  http://localhost:3300/api/workouts/26
 Content-Type: application/json
 
-{
+{   
+    "quote": "Go hard or go home",
     "day_num": 7,
     "warmup": "5 mins",
     "pushups": "20 reps",
@@ -33,5 +35,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3300/api/workouts/8
+DELETE http://localhost:3300/api/workouts/29
 
